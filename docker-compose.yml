@@ -3,7 +3,7 @@ services:
   node_c:
     restart: always
     container_name: node_c
-    build: todo-dev-node
+    build: node-apps
     ports:
       - "0.0.0.0:8000:8000"  
     #env_file: ./env/user.env
