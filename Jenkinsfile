@@ -8,8 +8,19 @@ pipeline {
     }
 
     stage('logs') {
-      steps {
-        sh 'ls -la'
+      parallel {
+        stage('logs') {
+          steps {
+            sh 'ls -la'
+          }
+        }
+
+        stage('back-end-run') {
+          steps {
+            sh 'docker-compose up -d'
+          }
+        }
+
       }
     }
 
