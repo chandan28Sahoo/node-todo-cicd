@@ -1,26 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('checkout_code') {
+    stage('back-end-run') {
       steps {
-        git(url: ' https://github.com/chandan28Sahoo/node-todo-cicd', branch: 'master')
-      }
-    }
-
-    stage('logs') {
-      parallel {
-        stage('logs') {
-          steps {
-            sh 'ls -la'
-          }
-        }
-
-        stage('back-end-run') {
-          steps {
-            sh 'docker-compose up -d'
-          }
-        }
-
+        sh 'docker-compose up -d'
       }
     }
 
